@@ -1,0 +1,117 @@
+
+<html>
+<head>
+<script src="MyScripts/LocalStorageLogic.js"></script>
+<style>
+
+</style>
+</head>
+<body background="img/5.jpg">
+<form name="myForm" style="margin-top: 70px;
+		margin-left: 350px;
+		margin-right:350px;">
+<table style="width:70%;" id="tbl"> 
+<caption style="font-size:28px;"><strong>AUTHORIZER DETAILS</strong></caption>
+<tr><td> </td><td> </td></tr>
+<tr> 
+    <td>Person Id*:</td> 
+    <td> 
+        <input id="txtpid" type="text"  class="c1" maxlength="7" name="pid" Required/></td> 
+</tr> 
+<tr> 
+    <td>Person Name:</td> 
+    <td> 
+        <input id="txtpname" type="text" class="c1" /></td> 
+</tr> 
+<tr> 
+    <td>Address:</td> 
+    <td> 
+        <textarea id="txtpaddr" class="c1" maxlength="150"></textarea></td> 
+</tr> 
+<tr> 
+    <td>City:</td> 
+    <td> 
+        <input id="txtpcity" type="text" class="c1"/></td> 
+</tr> 
+<tr> 
+    <td>Email*:</td> 
+    <td> 
+        <input id="txtpemil" type="email" class="c1" name="EMail" /></td> 
+</tr> 
+<tr> 
+    <td>Age:</td> 
+    <td> 
+        <input id="txtpage" type="text" class="c1"/></td> 
+</tr> 
+<tr> 
+    <td>Designation:</td> 
+    <td> 
+        <input id="txtpoccup" type="text" class="c1"/></td> 
+</tr> 
+<tr> 
+    <td>Mobile No*:</td> 
+    <td> 
+        <input id="txtpmobile" type="tel" class="c1" name="mno" /></td> 
+</tr> 
+<tr> 
+    <td>Gender:</td> 
+    <td> 
+        <select id="lstpgender" class="c1"> 
+            <option>Male</option> 
+            <option>Female</option> 
+        </select> 
+    </td> 
+</tr> 
+<tr> 
+    <td>&nbsp;</td> 
+    <td>&nbsp;</td> 
+</tr> 
+<tr> 
+    <td><input id="btnsave" type="button" value="Save" onclick="return(validateEmail());"/>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <input id="btnclear" type="button" value="Clear" /> </td>
+    <td><input id="btnclearstorage" type="button" value="Clear Storage" />
+	<input type="button" value="Home" onclick="window.location.href='mcm.html'"/></td> 
+</tr> 
+</table></form> <script src="MyScripts/LocalStorageLogic.js"></script>
+<div id="dvcontainer">
+</div>
+<script type="text/javascript">
+      function validateEmail()
+      {
+	  if( document.myForm.pid.value == "" )
+         {
+            alert( "Please provide your ID!" );
+            document.myForm.pid.focus() ;
+            return false;
+         }
+	  if( document.myForm.EMail.value == "" )
+         {
+            alert( "Please provide your Email!" );
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+		 
+		 if( document.myForm.mno.value == "" )
+         {
+            alert( "Please provide your Mobile number!" );
+            document.myForm.mno.focus() ;
+            return false;
+         }
+         var emailID = document.myForm.EMail.value;
+         atpos = emailID.indexOf("@");
+         dotpos = emailID.lastIndexOf(".");
+         
+         if (atpos < 1 || ( dotpos - atpos < 2 )) 
+         {
+            alert("Please enter valid email ID with @ and .")
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+         return( true );
+      }
+ 
+</script>
+ 
+</body>
+</html>
